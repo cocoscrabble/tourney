@@ -3,5 +3,8 @@
     "vite": "^2.8.6",
     "vite-plugin-full-reload": "^1.0.0",
     "vite-plugin-ruby": "^3.0.8"
+  },
+  "dependencies": {
+    "@js-from-routes/client": "^1.0.2"
   }
 }

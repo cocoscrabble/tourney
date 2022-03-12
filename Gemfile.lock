@@ -101,6 +101,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    js_from_routes (2.0.5)
+      railties (>= 5.1, < 8)
     loofah (2.14.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -219,6 +221,7 @@ DEPENDENCIES
   capybara
   debug
   jbuilder
+  js_from_routes
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.3)
   selenium-webdriver
