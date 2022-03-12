@@ -5,7 +5,9 @@
     "vite": "^2.8.6",
     "vite-plugin-full-reload": "^1.0.0",
     "vite-plugin-ruby": "^3.0.8",
-    "vite-plugin-stimulus-hmr": "^3.0.0"
+    "vite-plugin-stimulus-hmr": "^3.0.0",
+    "vite-plugin-windicss": "^1.8.3",
+    "windicss": "^3.5.1"
   },
   "dependencies": {
     "@js-from-routes/client": "^1.0.2"
