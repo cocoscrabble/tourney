@@ -20,3 +20,6 @@ module Tourney
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+require "view_component/engine"
+require "primer/view_components/engine"

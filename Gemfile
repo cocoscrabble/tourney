@@ -69,3 +69,6 @@ group :development do
 end
 
 gem "foreman", "~> 0.87.2"
+
+gem "view_component", "~> 2.50"
+gem "primer_view_components", "~> 0.0.69"
