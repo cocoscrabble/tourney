@@ -67,3 +67,5 @@ gem "vite_rails", "~> 3.0"
 group :development do
   gem "js_from_routes"
 end
+
+gem "foreman", "~> 0.87.2"
