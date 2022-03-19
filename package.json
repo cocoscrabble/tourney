@@ -12,6 +12,8 @@
   "dependencies": {
     "@js-from-routes/client": "^1.0.2",
     "@primer/css": "^19.5.1",
-    "@primer/view-components": "^0.0.69"
+    "@primer/view-components": "^0.0.69",
+    "@revolist/revogrid": "^3.0.98",
+    "@stencil/core": "latest"
   }
 }
