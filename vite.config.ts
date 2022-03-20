@@ -7,13 +7,13 @@ import WindiCSS from 'vite-plugin-windicss'
 export default defineConfig({
   plugins: [
     RubyPlugin(),
-    FullReload(['config/routes.rb', 'app/views/**/*']),
+    FullReload(['config/routes.rb', 'app/views/**/*', 'app/components/**/*']),
     StimulusHMR(),
     WindiCSS({
       root: __dirname,
       scan: {
         fileExtensions: ['erb', 'haml', 'html', 'vue', 'js', 'ts', 'jsx', 'tsx'],
-        dirs: ['app/views', 'app/frontend'],
+        dirs: ['app/views', 'app/components', 'app/frontend'],
       },
     }),
   ],

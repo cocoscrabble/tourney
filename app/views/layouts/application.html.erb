@@ -6,7 +6,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application" %>
     <%= vite_client_tag %>
     <%= vite_javascript_tag 'application' %>
     <!--
@@ -22,6 +21,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render(Primer::LayoutComponent.new(side: :left, sidebar_col: 1)) do |component| %>
+      <% component.sidebar do %>
+        <%= render(NavbarComponent.new) %>
+      <% end %>
+      <% component.main do %>
+        <%= yield %>
+      <% end %>
+    <% end %>
   </body>
 </html>

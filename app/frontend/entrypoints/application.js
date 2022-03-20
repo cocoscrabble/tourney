@@ -1,6 +1,8 @@
 import { Application } from 'stimulus'
 import { registerControllers } from 'stimulus-vite-helpers'
-import 'windi.css'
+import 'virtual:windi.css'
+import 'virtual:windi-devtools'
+import '@primer/css/dist/primer.css'
 import '@revolist/revogrid';
 import { defineCustomElements } from "@revolist/revogrid/custom-element";
 
