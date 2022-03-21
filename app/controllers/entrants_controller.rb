@@ -1,9 +1,10 @@
 class EntrantsController < ApplicationController
   before_action :set_entrant, only: %i[ show edit update destroy ]
+  before_action :get_tournament
 
   # GET /entrants or /entrants.json
   def index
-    @entrants = Entrant.all
+    @entrants = json_entrants(@tournament).to_json
   end
 
   # GET /entrants/1 or /entrants/1.json
@@ -57,7 +58,30 @@ class EntrantsController < ApplicationController
     end
   end
 
+  def update_all
+    tid = params["tournament_id"]
+    Entrant.destroy_by(tournament_id: params["tournament_id"])
+    new = params["_json"].filter {|e|
+      !e["name"].empty?
+    }.map {|e|
+      e.merge({"tournament_id": tid}).permit(:tournament_id, :userid, :name, :player_number, :rating, :division)
+    }
+    if new.length > 0
+      Entrant.insert_all(new)
+    end
+    respond_to do |format|
+      format.json {
+        entrants = json_entrants(Tournament.find(params[:tournament_id]))
+        render json: entrants
+      }
+    end
+  end
+
   private
+    def get_tournament
+      @tournament = Tournament.find(params[:tournament_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_entrant
       @entrant = Entrant.find(params[:id])
@@ -66,5 +90,12 @@ class EntrantsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def entrant_params
       params.require(:entrant).permit(:tournament_id, :userid, :name, :player_number, :rating, :division)
+    end
+
+    def json_entrants(tournament)
+      keys = ["division", "player_number", "userid", "name", "rating"]
+      tournament.entrants.map {|e|
+        e.as_json.slice(*keys).update("deleted": false)
+      }
     end
 end

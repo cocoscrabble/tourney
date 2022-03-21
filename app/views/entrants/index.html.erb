@@ -1,14 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<h2><%= @tournament.name %> Entrants</h2>
 
-<h1>Entrants</h1>
-
-<div id="entrants">
-  <% @entrants.each do |entrant| %>
-    <%= render entrant %>
-    <p>
-      <%= link_to "Show this entrant", entrant %>
-    </p>
-  <% end %>
+<div data-controller="entrants"
+     data-entrants-tournamentid-value="<%= @tournament.id %>"
+     data-entrants-entrants-value="<%= @entrants %>"
+>
+  <revo-grid id="editgrid" data-entrants-target="grid" style="height:600px"></revo-grid>
+  <div class="m-4">
+    <button data-action="entrants#addRow"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+      Add entrant
+    </button>
+    <button data-action="entrants#submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+    >
+      Save changes
+    </button>
+  </div>
 </div>
 
-<%= link_to "New entrant", new_entrant_path %>
+<style>
+.deleted {
+  text-decoration: line-through;
+  color: lightblue;
+  background-color: darkgrey;
+}
+</style>
+
