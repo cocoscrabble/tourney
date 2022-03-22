@@ -1,0 +1,57 @@
+<%= form_with(model: result) do |form| %>
+  <% if result.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(result.errors.count, "error") %> prohibited this result from being saved:</h2>
+
+      <ul>
+        <% result.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :tournament_id, style: "display: block" %>
+    <%= form.text_field :tournament_id %>
+  </div>
+
+  <div>
+    <%= form.label :division, style: "display: block" %>
+    <%= form.text_field :division %>
+  </div>
+
+  <div>
+    <%= form.label :round, style: "display: block" %>
+    <%= form.text_field :round %>
+  </div>
+
+  <div>
+    <%= form.label :entrant_id, style: "display: block" %>
+    <%= form.text_field :entrant_id %>
+  </div>
+
+  <div>
+    <%= form.label :opponent_id, style: "display: block" %>
+    <%= form.text_field :opponent_id %>
+  </div>
+
+  <div>
+    <%= form.label :score, style: "display: block" %>
+    <%= form.number_field :score %>
+  </div>
+
+  <div>
+    <%= form.label :opponent_score, style: "display: block" %>
+    <%= form.number_field :opponent_score %>
+  </div>
+
+  <div>
+    <%= form.label :first, style: "display: block" %>
+    <%= form.check_box :first %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

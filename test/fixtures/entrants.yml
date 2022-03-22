@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tournament: one
+  userid: MyString
+  name: MyString
+  player_number: MyString
+  rating: 1
+  division: MyString
+
+two:
+  tournament: two
+  userid: MyString
+  name: MyString
+  player_number: MyString
+  rating: 1
+  division: MyString
