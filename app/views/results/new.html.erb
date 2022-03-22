@@ -1,9 +1,9 @@
-<h1>New result</h1>
+<h1><%= @tournament.name %>: Enter result</h1>
 
 <%= render "form", result: @result %>
 
 <br>
 
 <div>
-  <%= link_to "Back to results", results_path %>
+  <%= link_to "Back to results", tournament_results_path %>
 </div>

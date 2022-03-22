@@ -60,7 +60,7 @@ class EntrantsController < ApplicationController
 
   def update_all
     tid = params["tournament_id"]
-    Entrant.destroy_by(tournament_id: params["tournament_id"])
+    Entrant.destroy_by(tournament_id: tid)
     new = params["_json"].filter {|e|
       !e["name"].empty?
     }.map {|e|
@@ -71,7 +71,7 @@ class EntrantsController < ApplicationController
     end
     respond_to do |format|
       format.json {
-        entrants = json_entrants(Tournament.find(params[:tournament_id]))
+        entrants = json_entrants(@tournament)
         render json: entrants
       }
     end

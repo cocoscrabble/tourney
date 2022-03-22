@@ -1,4 +1,4 @@
-<%= form_with(model: result) do |form| %>
+<%= form_with(model: [@tournament, result]) do |form| %>
   <% if result.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(result.errors.count, "error") %> prohibited this result from being saved:</h2>
@@ -12,28 +12,20 @@
   <% end %>
 
   <div>
-    <%= form.label :tournament_id, style: "display: block" %>
-    <%= form.text_field :tournament_id %>
-  </div>
-
-  <div>
     <%= form.label :division, style: "display: block" %>
     <%= form.text_field :division %>
-  </div>
-
-  <div>
     <%= form.label :round, style: "display: block" %>
     <%= form.text_field :round %>
   </div>
 
   <div>
-    <%= form.label :entrant_id, style: "display: block" %>
-    <%= form.text_field :entrant_id %>
+    <%= form.label "Player", style: "display: block" %>
+    <%= form.select :entrant_id, @tournament.entrants.collect {|e| [ e.name, e.id ]} %>
   </div>
 
   <div>
-    <%= form.label :opponent_id, style: "display: block" %>
-    <%= form.text_field :opponent_id %>
+    <%= form.label "Opponent", style: "display: block" %>
+    <%= form.select :opponent_id, @tournament.entrants.collect {|e| [ e.name, e.id ]} %>
   </div>
 
   <div>

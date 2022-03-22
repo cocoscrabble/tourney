@@ -1,14 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<h2><%= @tournament.name %> Results</h2>
 
-<h1>Results</h1>
-
-<div id="results">
-  <% @results.each do |result| %>
-    <%= render result %>
-    <p>
-      <%= link_to "Show this result", result %>
-    </p>
-  <% end %>
+<div data-controller="results"
+     data-results-tournamentid-value="<%= @tournament.id %>"
+     data-results-results-value="<%= @results %>"
+>
+  <revo-grid id="editgrid" data-results-target="grid" style="height:600px"></revo-grid>
+  <div class="m-4">
+    <button data-action="results#addRow"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+      Add result
+    </button>
+    <button data-action="results#submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+    >
+      Save changes
+    </button>
+  </div>
 </div>
 
-<%= link_to "New result", new_result_path %>
+<style>
+.deleted {
+  text-decoration: line-through;
+  color: lightblue;
+  background-color: darkgrey;
+}
+</style>

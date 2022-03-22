@@ -3,8 +3,8 @@
 <%= render @result %>
 
 <div>
-  <%= link_to "Edit this result", edit_result_path(@result) %> |
-  <%= link_to "Back to results", results_path %>
+  <%= link_to "Edit this result", tournaments_edit_result_path(@result) %> |
+  <%= link_to "Back to results", tournaments_results_path %>
 
   <%= button_to "Destroy this result", @result, method: :delete %>
 </div>
