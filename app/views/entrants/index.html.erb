@@ -1,8 +1,8 @@
 <h2><%= @tournament.name %> Entrants</h2>
 
 <div data-controller="entrants"
-     data-entrants-tournamentid-value="<%= @tournament.id %>"
-     data-entrants-entrants-value="<%= @entrants %>"
+     data-entrants-submit-url-value="/tournaments/<%= @tournament.id %>/entrants/update_all"
+     data-entrants-rows-value="<%= @entrants %>"
 >
   <revo-grid id="editgrid" data-entrants-target="grid" style="height:600px"></revo-grid>
   <div class="m-4">
