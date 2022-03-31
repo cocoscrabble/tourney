@@ -1,24 +1,21 @@
-# README
+# Tourney: A Scrabble Tournament Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Still a work in progress. To get it up and running:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Install prerequisites:
+  * ruby-3.0.2, e.g. via [rbenv](https://github.com/rbenv/rbenv)
+  * [bundler](https://bundler.io/)
+  * [foreman](https://rubygems.org/gems/foreman/versions/0.87.2)
+  * [npm](https://www.npmjs.com/)
+* Check out and initialize the repository
+```
+$ git clone https://github.com/cocoscrabble/tourney
+$ cd tourney
+$ bundle install
+$ npm install
+$ rake db:migrate
+```
+* Start the dev server
+```
+$ bin/dev
+```
